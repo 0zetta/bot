@@ -44,6 +44,14 @@ async def meme(ctx,me):
     await ctx.message.delete()
 
 @bot.command()
+async def dica(ctx):
+    tot=[]
+    with open("tips.txt","r",encoding="utf-8") as f:
+        for d in f:
+            tot.append(d.strip())
+    await ctx.send(random.choice(tot))
+
+@bot.command()
 async def fetchme(ctx,im):
     await ctx.send(getthing())
 
